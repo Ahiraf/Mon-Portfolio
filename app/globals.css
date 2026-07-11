@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-text font-body antialiased;
+    background-image:
+      radial-gradient(60rem 60rem at 80% -10%, rgba(255, 111, 165, 0.14), transparent 60%),
+      radial-gradient(50rem 50rem at -10% 20%, rgba(247, 181, 208, 0.08), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(255, 111, 165, 0.35);
+    color: #fff;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+
+  /* Focus visibility — keyboard users must always see where they are */
+  :focus-visible {
+    outline: 2px solid theme("colors.mint");
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .mono-label {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-muted;
+  }
+
+  .shell {
+    @apply mx-auto w-full max-w-content px-6 sm:px-8;
+  }
+
+  .hairline {
+    @apply border-line;
+  }
+
+  /* Subtle dotted grid used behind the hero stack */
+  .dot-grid {
+    background-image: radial-gradient(rgba(180, 159, 176, 0.18) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(theme("colors.mint"), theme("colors.mint"));
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1.5px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
