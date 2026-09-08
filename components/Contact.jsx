@@ -1,4 +1,4 @@
-import { profile, socials } from "@/lib/content";
+import { profile, socials, emailHref } from "@/lib/content";
 import Reveal from "./Reveal";
 
 export default function Contact() {
@@ -19,7 +19,9 @@ export default function Contact() {
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
             <a
-              href={`mailto:${profile.email}`}
+              href={emailHref}
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-text px-6 py-3 text-sm font-medium text-ink transition-transform hover:-translate-y-0.5"
             >
               {profile.email}
